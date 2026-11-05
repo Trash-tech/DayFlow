@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="ru">
+ <head>
+  <meta charset="utf-8"/>
+  <meta content="width=device-width, initial-scale=1" name="viewport"/>
+  <meta content="#f4f5f8" name="theme-color"/>
+  <title>
+   Dayflow — планер
+  </title>
+  <link href="css/styles.css" rel="stylesheet"/>
+ </head>
+ <body>
+  <div class="app">
+   <aside class="sidebar">
+    <a aria-label="Dayflow — главная страница" class="brand" href="index.html">
+     <span class="brand-mark">
+      D
+     </span>
+     <span>
+      Dayflow
+     </span>
+    </a>
+    <div style="min-width:0">
+     <div class="side-label">
+      Рабочее пространство
+     </div>
+     <nav class="nav">
+      <button class="nav-item active" data-view="dashboard">
+       <span class="nav-icon">
+        ▦
+       </span>
+       Дашборд
+      </button>
+      <button class="nav-item" data-view="daily-list">
+       <span class="nav-icon">
+        ☷
+       </span>
+       Список на день
+      </button>
+      <button class="nav-item" data-view="notes">
+       <span class="nav-icon">
+        ▤
+       </span>
+       Заметки
+      </button>
+      <button class="nav-item" data-view="settings">
+       <span class="nav-icon">
+        ⚙
+       </span>
+       Настройки
+      </button>
+     </nav>
+    </div>
+    <div class="side-note">
+     Дополнительные режимы появятся здесь позже.
+    </div>
+   </aside>
+   <main class="main">
+    <div class="content">
+     <header class="topbar">
+      <div>
+       <div class="eyebrow">
+        ТВОЁ ПРОСТРАНСТВО ДЛЯ ПЛАНОВ
+       </div>
+       <h1 id="pageTitle">
+        Дашборд
+       </h1>
+      </div>
+      <div class="top-actions">
+       <div class="today-pill" id="todayLabel">
+       </div>
+       <button class="theme-btn" id="themeToggle">
+        ☾ Тёмная тема
+       </button>
+      </div>
+     </header>
+     <section class="page-view active" id="dashboardView">
+      <div class="month-head">
+       <div class="month-title" id="monthTitle">
+       </div>
+       <div class="month-controls">
+        <button class="primary-btn" id="addReminder">
+         ＋ Напоминание
+        </button>
+        <button class="secondary-btn" id="todayBtn">
+         Сегодня
+        </button>
+        <button aria-label="Предыдущий месяц" class="icon-btn" id="prevMonth">
+         ‹
+        </button>
+        <button aria-label="Следующий месяц" class="icon-btn" id="nextMonth">
+         ›
+        </button>
+       </div>
+      </div>
+      <div class="calendar">
+       <div class="weekdays">
+        <div class="weekday">
+         ПН
+        </div>
+        <div class="weekday">
+         ВТ
+        </div>
+        <div class="weekday">
+         СР
+        </div>
+        <div class="weekday">
+         ЧТ
+        </div>
+        <div class="weekday">
+         ПТ
+        </div>
+        <div class="weekday">
+         СБ
+        </div>
+        <div class="weekday">
+         ВС
+        </div>
+       </div>
+       <div class="month-grid" id="monthGrid">
+       </div>
+      </div>
+      <div class="bottom-hint">
+       Нажми на день, чтобы посмотреть напоминания · Нажми на «＋», чтобы добавить новое
+      </div>
+     </section>
+     <section class="page-view" id="dailyListView">
+      <div class="workspace-card">
+       <form class="quick-add" id="taskForm">
+        <input autocomplete="off" id="taskInput" maxlength="180" placeholder="Запиши, что нужно сделать..." required=""/>
+        <button class="primary-btn" type="submit">
+         ＋ Добавить
+        </button>
+       </form>
+       <div class="task-list" id="taskList">
+       </div>
+       <div class="list-empty" id="taskEmpty">
+        Пока здесь пусто. Добавь первое дело выше.
+       </div>
+       <div class="list-footer" id="taskFooter">
+       </div>
+      </div>
+     </section>
+     <section class="page-view" id="notesView">
+      <div class="page-heading">
+       <button class="primary-btn" id="newNoteBtn">
+        ＋ Новая заметка
+       </button>
+      </div>
+      <div class="notes-layout">
+       <div class="notes-list" id="notesList">
+       </div>
+       <div class="note-editor workspace-card" id="noteEditor">
+        <div class="note-editor-empty" id="noteEditorEmpty">
+         <div class="empty-icon">
+          ▤
+         </div>
+         <strong>
+          Твои мысли — в одном месте
+         </strong>
+         <span>
+          Создай заметку, чтобы записать идею, план или что-нибудь важное.
+         </span>
+         <button class="primary-btn" id="firstNoteBtn">
+          ＋ Создать заметку
+         </button>
+        </div>
+        <form class="note-form" hidden="" id="noteForm">
+         <input class="note-title-input" id="noteTitle" maxlength="100" placeholder="Название заметки"/>
+         <textarea id="noteBody" placeholder="Начни записывать..." rows="12"></textarea>
+         <div class="note-form-actions">
+          <button class="cancel-btn" id="deleteNoteBtn" type="button">
+           Удалить
+          </button>
+          <button class="primary-btn" type="submit">
+           Сохранить заметку
+          </button>
+         </div>
+        </form>
+       </div>
+      </div>
+     </section>
+     <section class="page-view" id="settingsView">
+      <div class="workspace-card settings-placeholder">
+       <div class="empty-icon">
+        ⚙
+       </div>
+       <strong>
+        Настроек пока нет
+       </strong>
+       <span>
+        Этот раздел появится в одном из следующих обновлений Dayflow.
+       </span>
+      </div>
+     </section>
+    </div>
+   </main>
+  </div>
+  <div class="day-modal-backdrop" id="dayModalBackdrop">
+   <section aria-labelledby="dayModalTitle" aria-modal="true" class="day-modal" role="dialog">
+    <div class="day-modal-head">
+     <div>
+      <div class="day-modal-title" id="dayModalTitle">
+       День
+      </div>
+      <div class="day-modal-sub" id="dayModalSub">
+      </div>
+     </div>
+     <div class="day-modal-actions">
+      <button class="primary-btn" id="dayModalAdd">
+       ＋ Добавить
+      </button>
+      <button aria-label="Закрыть" class="close-btn" id="closeDayModal">
+       ×
+      </button>
+     </div>
+    </div>
+    <div class="day-modal-list" id="dayModalList">
+    </div>
+   </section>
+  </div>
+  <div class="modal-backdrop" id="modalBackdrop">
+   <section aria-labelledby="modalTitle" aria-modal="true" class="modal" role="dialog">
+    <div class="modal-head">
+     <div>
+      <div class="modal-title" id="modalTitle">
+       Новое напоминание
+      </div>
+      <div class="modal-sub" id="modalSub">
+       Добавь событие в календарь
+      </div>
+     </div>
+     <button aria-label="Закрыть" class="close-btn" id="closeModal">
+      ×
+     </button>
+    </div>
+    <form class="form-grid" id="reminderForm">
+     <div class="field">
+      <label for="reminderName">
+       Название
+      </label>
+      <input id="reminderName" maxlength="100" placeholder="Например, встреча или важное дело" required=""/>
+     </div>
+     <div class="field">
+      <label for="reminderDate">
+       Дата
+      </label>
+      <input id="reminderDate" required="" type="date"/>
+     </div>
+     <div class="field">
+      <label for="reminderTime">
+       Время (необязательно)
+      </label>
+      <input id="reminderTime" type="time"/>
+     </div>
+     <div class="field">
+      <label>
+       Цвет напоминания
+      </label>
+      <div class="color-row">
+       <input class="color-input" id="reminderColor" type="color" value="#8b7cf6"/>
+       <span class="color-caption">
+        Выбери цвет, чтобы различать события
+       </span>
+      </div>
+     </div>
+     <div class="form-actions">
+      <button class="cancel-btn" id="cancelModal" type="button">
+       Отмена
+      </button>
+      <button class="primary-btn" id="saveReminder" type="submit">
+       Добавить
+      </button>
+     </div>
+    </form>
+   </section>
+  </div>
+  <script src="js/app.js">
+  </script>
+ </body>
+</html>
+
